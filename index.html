@@ -3,9 +3,34 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="./styles/index.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Acme&family=Plus+Jakarta+Sans:wght@300;400&family=Poppins:wght@100;600&family=Quicksand:wght@300;500;700&display=swap" rel="stylesheet">
   <title>Tamagotchi</title>
 </head>
 <body>
-  
+  <h1>Hello stranger! Let's play!</h1>
+  <div>
+    <div id="display">
+      <p class="pet-msg">pet status</p>
+      <div>
+        <p>Energy level</p>
+        <div class="energy-number" ></div>
+      </div>
+      <div>
+        <p>Hunger level</p>
+        <div class="hunger-number" ></div>
+      </div>
+    </div>
+    <ul>
+      <li><button id="sleep-btn" >Sleep</button></li>
+      <li><button id="play-btn" >Play</button></li>
+      <li><button id="eat-btn" >Eat</button></li>
+    </ul>
+    <button id="restart-btn" >RESET</button>
+  </div>
 </body>
+<script src="./index.js"></script>
 </html>

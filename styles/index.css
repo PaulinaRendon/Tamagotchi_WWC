@@ -1,4 +1,17 @@
 * {
   margin: 0;
+  padding: 0;
   box-sizing: border-box;
+  font-family: 'Acme', sans-serif;
+  list-style: none;
+}
+
+:root {
+  --mainbodycolor : #FBEEAC;
+}
+
+body {
+  background-color: var(--mainbodycolor);
+  display: flex;
+  flex-direction: column;
 }
