@@ -48,8 +48,8 @@ function petFunctions() {
         petPlayMessage.textContent = "I'm running";
         estatus = "running";
         age++;
-        energy = energy - 30;
-        hunger += 20;
+        energy = energy - 10;
+        hunger = hunger + 10;
         petEnergy.textContent = energy;
         petHunger.textContent = hunger;
         return {
@@ -64,19 +64,23 @@ function petFunctions() {
     },
 
     eat: function () {
-      if (estatus !== "eating" && energy <= 90) {
+      if (energy <= 90) {
         clearInterval(timePass);
         petHungerMessage.textContent = "I'm eating";
         estatus = "eating";
         age++;
+        hunger = hunger - 10;
+        console.log(hunger);
         energy = energy + 10;
         petEnergy.textContent = energy;
+        petHunger.textContent = hunger;
         return {
           energy,
           age,
           estatus,
+          hunger,
         };
-      } else if (energy <= 90) {
+      } else if (energy <= 90 && estatus === "eating") {
         petHungerMessage.textContent = "I'm full";
         petEnergy.textContent = energy;
         return energy;
@@ -98,7 +102,7 @@ eatBtn.addEventListener("click", () => myPet.eat());
 let timePass = setInterval(() => {
   energy = energy - 1;
   petEnergy.textContent = energy;
-}, 5000);
+}, 10000);
 
 let sleeping = setInterval(() => {
   energy = energy++;
@@ -109,6 +113,8 @@ function restart() {
   energy = 100;
   hunger = 0;
   petPlayMessage.textContent = "This was fun, let's do this again!";
+  petHunger.textContent = hunger;
+  petEnergy.textContent = energy;
 }
 
 restartBtn.addEventListener("click", restart);
