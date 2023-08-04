@@ -7,16 +7,19 @@ const petHunger = document.querySelector(".hunger-number");
 const petPlayMessage = document.querySelector(".pet-msg");
 const petEnergyMessage = document.querySelector(".energy-msg");
 const petHungerMessage = document.querySelector(".hunger-msg");
+const petGif = document.querySelector("#pet-gif");
 
 let energy = 100;
 let hunger = 0;
 let estatus;
+const defaultGif = "./assets/hello_cat.gif";
 
 function petFunctions() {
   /* let hunger = 100; */
   let age = 0;
   petEnergy.textContent = energy;
   petHunger.textContent = hunger;
+  petGif.src = defaultGif;
 
   return {
     sleep: function () {
@@ -26,6 +29,7 @@ function petFunctions() {
         estatus = "sleeping";
         age++;
         energy += 20;
+        petGif.src = "./assets/sleeping_cat.gif";
 
         return {
           energy,
@@ -35,10 +39,12 @@ function petFunctions() {
       } else if (estatus === "sleeping") {
         petEnergyMessage.textContent = "I just slept";
         petEnergy.textContent = energy;
+        petGif.src = defaultGif;
         return energy;
       } else {
         petEnergyMessage.textContent = "I don't need to sleep";
         petEnergy.textContent = energy;
+        petGif.src = defaultGif;
         return energy;
       }
     },
@@ -52,6 +58,7 @@ function petFunctions() {
         hunger = hunger + 10;
         petEnergy.textContent = energy;
         petHunger.textContent = hunger;
+        petGif.src = "./assets/playing_cat.gif";
         return {
           energy,
           hunger,
@@ -60,6 +67,7 @@ function petFunctions() {
         };
       } else {
         petPlayMessage.textContent = "I'm tired";
+        petGif.src = defaultGif;
       }
     },
 
@@ -74,6 +82,7 @@ function petFunctions() {
         energy = energy + 10;
         petEnergy.textContent = energy;
         petHunger.textContent = hunger;
+        petGif.src = "./assets/eating_cat.gif";
         return {
           energy,
           age,
@@ -83,10 +92,12 @@ function petFunctions() {
       } else if (energy <= 90 && estatus === "eating") {
         petHungerMessage.textContent = "I'm full";
         petEnergy.textContent = energy;
+        petGif.src = defaultGif;
         return energy;
       } else {
         petHungerMessage.textContent = "I just ate";
         petEnergy.textContent = energy;
+        petGif.src = defaultGif;
         return energy;
       }
     },
@@ -115,6 +126,7 @@ function restart() {
   petPlayMessage.textContent = "This was fun, let's do this again!";
   petHunger.textContent = hunger;
   petEnergy.textContent = energy;
+  petGif.src = defaultGif;
 }
 
 restartBtn.addEventListener("click", restart);
