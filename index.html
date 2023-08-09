@@ -15,29 +15,31 @@
   </head>
   <body>
     <h1>Hello stranger! Let's play!</h1>
-    <div>
-      <img id="pet-gif" />
-    </div>
-    <div>
-      <div id="display">
-        <p class="pet-msg">pet status</p>
-        <div>
-          <h3 class="energy-msg">I don't wanna sleep</h3>
-          <p>Energy level</p>
-          <div class="energy-number"></div>
-        </div>
-        <div>
-          <h3 class="hunger-msg">I don't wanna eat</h3>
-          <p>Hunger level</p>
-          <div class="hunger-number"></div>
-        </div>
+    <div id="tamagotchi-ui">
+      <div>
+        <img id="pet-gif" />
       </div>
-      <ul>
-        <li><button id="sleep-btn">Sleep</button></li>
-        <li><button id="play-btn">Play</button></li>
-        <li><button id="eat-btn">Eat</button></li>
-      </ul>
-      <button id="restart-btn">RESET</button>
+      <div id="tamagotchi-info">
+        <p class="pet-msg">pet status</p>
+        <div id="display">
+          <div>
+            <h3 class="energy-msg"></h3>
+            <p>Energy level</p>
+            <div class="energy-number"></div>
+          </div>
+          <div>
+            <h3 class="hunger-msg"></h3>
+            <p>Hunger level</p>
+            <div class="hunger-number"></div>
+          </div>
+        </div>
+        <ul>
+          <li><button id="sleep-btn">Sleep</button></li>
+          <li><button id="play-btn">Play</button></li>
+          <li><button id="eat-btn">Eat</button></li>
+        </ul>
+      </div>
+      <button id="restart-btn">RESTART</button>
     </div>
   </body>
   <script src="./index.js"></script>

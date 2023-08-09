@@ -15,7 +15,6 @@ let estatus;
 const defaultGif = "./assets/hello_cat.gif";
 
 function petFunctions() {
-  /* let hunger = 100; */
   let age = 0;
   petEnergy.textContent = energy;
   petHunger.textContent = hunger;
@@ -51,7 +50,7 @@ function petFunctions() {
 
     play: function () {
       if (energy > 30) {
-        petPlayMessage.textContent = "I'm running";
+        petPlayMessage.textContent = "Yay! this games are fun!";
         estatus = "running";
         age++;
         energy = energy - 10;
@@ -74,7 +73,8 @@ function petFunctions() {
     eat: function () {
       if (energy <= 90) {
         clearInterval(timePass);
-        petHungerMessage.textContent = "I'm eating";
+        petHungerMessage.textContent = "I need food";
+        petPlayMessage.textContent = "I'm eating";
         estatus = "eating";
         age++;
         hunger = hunger - 10;
@@ -113,12 +113,12 @@ eatBtn.addEventListener("click", () => myPet.eat());
 let timePass = setInterval(() => {
   energy = energy - 1;
   petEnergy.textContent = energy;
-}, 10000);
+}, 100000);
 
 let sleeping = setInterval(() => {
   energy = energy++;
   petEnergy.textContent = energy;
-}, 1000);
+}, 100);
 
 function restart() {
   energy = 100;
@@ -130,3 +130,15 @@ function restart() {
 }
 
 restartBtn.addEventListener("click", restart);
+
+const automaticStop = () => {
+  if (energy === 0) {
+    clearInterval(timePass);
+    petEnergy.textContent = energy;
+    return {
+      energy,
+    };
+  }
+};
+
+automaticStop();
